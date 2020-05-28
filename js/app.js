@@ -10,9 +10,9 @@ eventos();
 function eventos(){
     //se ejecuta cuando damos click en el curso
     cursos.addEventListener('click', comprarCurso);
+    //se ejecuta cuando damos click en X (eliminar)
+    carrito.addEventListener('click', borrarElementoCarro);
 }
-
-
 //FUNCIONES
 //funcion que añade el curso al carrito
 function comprarCurso(e){
@@ -34,7 +34,6 @@ function leerDatosCurso(cursoDatos){
         precio: cursoDatos.querySelector('span').textContent,
         id: cursoDatos.querySelector('a').getAttribute('data-id'),
     }
-
     insertarAlCarrito(informacionCurso);
 }
 function insertarAlCarrito(datos){
@@ -54,5 +53,13 @@ function insertarAlCarrito(datos){
     `;
     contenidoCarrito.appendChild(seAgrega);
 }
+function borrarElementoCarro(e){
+    e.preventDefault();
 
+  if(e.target.classList.contains('borrar-curso')){
+
+      const borrarCurso = e.target.parentElement.parentElement.remove();
+      console.log(borrarCurso);
+  }
+}
 
