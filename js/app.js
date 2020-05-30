@@ -40,7 +40,7 @@ function insertarAlCarrito(datos){
     /*una vez obtenidos los datoscreamos un elemnto donde se insertaran
     en el carrito*/
     const seAgrega = document.createElement('tr');
-
+    //a traves de templates literals agregamos los elementos en el html
     seAgrega.innerHTML = `
         <td>
         <img src="${datos.imagen}">
@@ -55,11 +55,9 @@ function insertarAlCarrito(datos){
 }
 function borrarElementoCarro(e){
     e.preventDefault();
-
+    //aplicamos delegation, y si el elemento selecionado contiene la clase "borrar-curso", se elimina.
   if(e.target.classList.contains('borrar-curso')){
 
-      const borrarCurso = e.target.parentElement.parentElement.remove();
-      console.log(borrarCurso);
-  }
+      const borrarCurso = e.target.parentElement.parentElement.remove(); 
+    }
 }
-
